@@ -26,7 +26,7 @@ void update_light_stage(void) {
         case FADE_IN:
             counter++;                          //inicia a logica de contagem. o counter só atualiza o TA1CCR1 qnd chega em 2000 (para gerar a demora na contagem sem usar delay cycles)
             
-            if(counter == 2) {                  //a cada 2 ms incrementa o brilho         
+            if(counter == 10) {                  //a cada 10 ms incrementa o brilho         
                 counter = 0;
                 TA1CCR1 += 1;
 
@@ -48,7 +48,7 @@ void update_light_stage(void) {
         case FADE_OUT:
             counter++;                          //inicia a logica de contagem. o counter só atualiza o TA1CCR1 qnd chega em 2 (para gerar a demora na contagem sem usar delay cycles)
     
-            if(counter == 2) {                  //a cada 2 ms decrementa o brilho              
+            if(counter == 10) {                  //a cada 10 ms decrementa o brilho              
                 counter = 0;
                 TA1CCR1 -= 1;
 

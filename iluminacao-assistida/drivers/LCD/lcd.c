@@ -1,6 +1,6 @@
 #include <msp430.h>
 #include "lcd.h"
-#include "i2c.h"
+#include "drivers/I2C/i2c.h"
 
 static lcdWriteNibble(uint8_t nibble, uint8_t isChar) {
     uint8_t pack = 0;
@@ -12,15 +12,15 @@ static lcdWriteNibble(uint8_t nibble, uint8_t isChar) {
     pack &= ~(1 << 1);                      //posicionando R/W = 0 em P1
     pack &= ~(1 << 2);                      //posicionando E = 0 em P2
 
-    i2cSend(0x3F, pack);
+    i2cSendByte(0x3F, pack);
 
     pack |= (1 << 2);                        //posicionando E = 1 em P2
 
-    i2cSend(0x3F, pack);
+    i2cSendByte(0x3F, pack);
 
     pack &= ~(1 << 2);                      //posicionando E = 0 em P2
 
-    i2cSend(0x3F, pack);
+    i2cSendByte(0x3F, pack);
 }
 
 static lcdWriteByte(uint8_t byte, uint8_t isChar) {

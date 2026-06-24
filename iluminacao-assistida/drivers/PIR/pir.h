@@ -1,6 +1,6 @@
 #ifndef PIR_H_
 #define PIR_H_
 
-void pirInit(void);
+void init_pir(void);
 
 #endif

@@ -1,5 +1,5 @@
 #include <msp430.h>
-#include "i2c.h"
+#include "drivers/I2C/i2c.h"
 
 void i2cInit(void) {
     UCB0CTL1 |= UCSWRST; 
