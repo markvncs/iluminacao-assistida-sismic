@@ -1,7 +1,7 @@
 #include <msp430.h>
 #include "pir.h"
 
-void pirInit() {
+void init_pir() {
     P1DIR &= ~BIT3;
     P1IES &= ~BIT3;   //ativa interrupção na borda de subida
     P1IFG &= ~BIT3;

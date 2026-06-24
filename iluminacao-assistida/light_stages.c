@@ -1,6 +1,6 @@
 #include <msp430.h>
 #include "light_stages.h"
-#include "timer_A1.h"
+#include "drivers/TIMERS/Timer_A1/timer_A1.h"
 
 enum Stages stage;
 volatile unsigned int counter;
