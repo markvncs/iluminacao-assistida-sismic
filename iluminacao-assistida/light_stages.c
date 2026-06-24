@@ -32,6 +32,8 @@ void update_light_stage(void) {
                 }
             }
 
+            break;
+
         case ON:
             break;
 

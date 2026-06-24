@@ -10,6 +10,21 @@ void main() {
 
     i2cInit();
     lcdInit();
+
+    timerA1Init();
+    init_light_stages();
+
+    __enable_interrupt();
     
-    while(1) {}
+    while(1) {
+        update_light_stage();
+    }
+}
+
+#pragma vector = 47
+_interrupt void PIR_activated(void) {
+    switch (P1IV) {
+        case 0x08:                           //ativação do P1.3, limpa a flag automaticamente
+            init_fade_in();
+    }
 }
