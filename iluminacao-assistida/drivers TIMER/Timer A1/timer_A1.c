@@ -1,7 +1,7 @@
 #include <msp430.h>
 #include "timer_A1.h"
 
-void timerA1Init(void) {
+void init_timer_A1(void) {
     P2DIR |= BIT0;                                      //p2.0 definido como saída
     P2SEL |= BIT0;                                      //p2.0 é saida do sinal do timer A1.1
 

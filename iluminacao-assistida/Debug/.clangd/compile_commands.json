@@ -232,6 +232,11 @@
    {
       "directory" : "C:/Users/vmarc/workspace_ccstheia/iluminacao-assistida-sismic/iluminacao-assistida/Debug",
       "command"   : "clang++ -I\"C:/ti/ccs2050/ccs/ccs_base/msp430/include\" -I\"C:/Users/vmarc/workspace_ccstheia/iluminacao-assistida-sismic/iluminacao-assistida\" -I\"C:/Users/vmarc/workspace_ccstheia/iluminacao-assistida-sismic/iluminacao-assistida/driverlib/MSP430F5xx_6xx\" -I\"C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430F5529__ -DDEPRECATED -xc",
-      "file"      : "C:/Users/vmarc/workspace_ccstheia/iluminacao-assistida-sismic/iluminacao-assistida/drivers TIMER/timer_A1.c"
+      "file"      : "C:/Users/vmarc/workspace_ccstheia/iluminacao-assistida-sismic/iluminacao-assistida/drivers TIMER/Timer A1/timer_A1.c"
+   },
+   {
+      "directory" : "C:/Users/vmarc/workspace_ccstheia/iluminacao-assistida-sismic/iluminacao-assistida/Debug",
+      "command"   : "clang++ -I\"C:/ti/ccs2050/ccs/ccs_base/msp430/include\" -I\"C:/Users/vmarc/workspace_ccstheia/iluminacao-assistida-sismic/iluminacao-assistida\" -I\"C:/Users/vmarc/workspace_ccstheia/iluminacao-assistida-sismic/iluminacao-assistida/driverlib/MSP430F5xx_6xx\" -I\"C:/ti/ccs2050/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include\" -D__MSP430F5529__ -DDEPRECATED -xc",
+      "file"      : "C:/Users/vmarc/workspace_ccstheia/iluminacao-assistida-sismic/iluminacao-assistida/drivers TIMER/Timer B0/timer_B0.c"
    }
 ]
