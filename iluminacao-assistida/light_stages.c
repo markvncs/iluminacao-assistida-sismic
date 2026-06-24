@@ -4,6 +4,7 @@
 
 enum Stages stage;
 volatile unsigned int counter;
+volatile unsigned long time_on;
 
 void init_light_stages(void) {
     stage = OFF;                         //estado da iluminação inicia em OFF
@@ -14,9 +15,8 @@ void init_light_stages(void) {
 void init_fade_in(void) {
     stage = FADE_IN;
     counter = 0;
+    time_on = 0;
 }
-
-void init_fade_out
 
 void update_light_stage(void) {
     switch(stage) {
@@ -26,7 +26,7 @@ void update_light_stage(void) {
         case FADE_IN:
             counter++;                          //inicia a logica de contagem. o counter só atualiza o TA1CCR1 qnd chega em 2000 (para gerar a demora na contagem sem usar delay cycles)
             
-            if(counter == 2000) {                  
+            if(counter == 2) {                  //a cada 2 ms incrementa o brilho         
                 counter = 0;
                 TA1CCR1 += 1;
 
@@ -34,16 +34,21 @@ void update_light_stage(void) {
                     stage = ON;                 //quando chegar no teto de iluminação (TA1CCR0), stage = ON
                 }
             }
-
             break;
 
         case ON:
+            time_on++;
+            
+            if(time_on == 30000) {            // 30000 ms = 30 segundos ligado antes do fade_out
+                time_on = 0;
+                stage = FADE_OUT;
+            }
             break;
 
         case FADE_OUT:
-            counter++;                          //inicia a logica de contagem. o counter só atualiza o TA1CCR1 qnd chega em 2000 (para gerar a demora na contagem sem usar delay cycles)
-            
-            if(counter == 2000) {                  
+            counter++;                          //inicia a logica de contagem. o counter só atualiza o TA1CCR1 qnd chega em 2 (para gerar a demora na contagem sem usar delay cycles)
+    
+            if(counter == 2) {                  //a cada 2 ms decrementa o brilho              
                 counter = 0;
                 TA1CCR1 -= 1;
 
@@ -51,7 +56,6 @@ void update_light_stage(void) {
                     stage = OFF;                 //quando chegar no zero de imulimnação (0), stage = OFF
                 }
             }
-
             break;
     }
 }
