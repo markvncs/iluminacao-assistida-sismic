@@ -2,7 +2,7 @@
 #include "lcd.h"
 #include "drivers/I2C/i2c.h"
 
-static lcdWriteNibble(uint8_t nibble, uint8_t isChar) {
+void lcdWriteNibble(uint8_t nibble, uint8_t isChar) {
     uint8_t pack = 0;
     
     pack |= (nibble << 4) | isChar;        //posicionando nibble dm D[4:7] e RS em P0
@@ -23,7 +23,7 @@ static lcdWriteNibble(uint8_t nibble, uint8_t isChar) {
     i2cSendByte(0x3F, pack);
 }
 
-static lcdWriteByte(uint8_t byte, uint8_t isChar) {
+void lcdWriteByte(uint8_t byte, uint8_t isChar) {
     uint8_t hn = byte >> 4;
     uint8_t ln = byte & 0x0F; 
 
